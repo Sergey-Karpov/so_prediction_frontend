@@ -5,13 +5,14 @@ import PredictionForm from '@/components/ui/PredictionForm.vue'
 const modelDocs = ref(null)
 const errorMsg = ref('')
 const isLoading = ref(false)
+const API_URL = import.meta.env.VITE_API_URL
 
 onMounted(async () => {
   isLoading.value = true
   errorMsg.value = ''
 
   try {
-    const response = await fetch('https://sales-prediction-api.up.railway.app')
+    const response = await fetch(API_URL)
     if (response.ok) {
       modelDocs.value = await response.json()
       console.log(modelDocs.value)

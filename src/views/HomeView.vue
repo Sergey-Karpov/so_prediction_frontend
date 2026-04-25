@@ -6,13 +6,14 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const isLoading = ref(false)
 const errorMsg = ref('')
+const API_URL = import.meta.env.VITE_API_URL
 
 const checkServer = async () => {
   isLoading.value = true
   errorMsg.value = ''
 
   try {
-    const response = await fetch('https://sales-prediction-api.up.railway.app/health')
+    const response = await fetch(API_URL)
     if (response.ok) {
       router.push('/form')
       console.log('ok')
