@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import BtnMain from '../components/ui/BtnMain.vue'
+import BtnMain from '@/components/ui/BtnMain.vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
