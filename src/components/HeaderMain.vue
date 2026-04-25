@@ -17,8 +17,4 @@ header {
   align-items: center;
   justify-content: center;
 }
-
-.title {
-  // width: 100%;
-}
 </style>

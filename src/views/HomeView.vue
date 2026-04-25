@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import BtnMain from '@/components/ui/BtnMain.vue'
 import { useRouter } from 'vue-router'
 
@@ -7,6 +7,10 @@ const router = useRouter()
 const isLoading = ref(false)
 const errorMsg = ref('')
 const API_URL = import.meta.env.VITE_API_URL
+
+onMounted(() => {
+  console.log(API_URL)
+})
 
 const checkServer = async () => {
   isLoading.value = true

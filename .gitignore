@@ -12,7 +12,7 @@ lerna-debug.log*
 .env.*
 !.env.example
 !.env.development
-!.env.production  # раскомментируйте, если НЕ хотите публиковать production URL
+!.env.production 
 .env.local
 .env.*.local
 
