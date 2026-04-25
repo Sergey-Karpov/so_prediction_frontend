@@ -4,8 +4,17 @@ import HeaderMain from '@/components/HeaderMain.vue'
 </script>
 
 <template>
-  <HeaderMain />
-  <RouterView />
+  <div class="container">
+    <HeaderMain />
+    <RouterView />
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 2rem;
+}
+</style>
