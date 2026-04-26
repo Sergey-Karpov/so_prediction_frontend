@@ -72,9 +72,11 @@
               </thead>
               <tbody>
                 <tr v-for="feature in featureImportance" :key="feature.name">
-                  <td>{{ feature.name }}</td>
-                  <td>{{ (feature.importance * 100).toFixed(2) }}%</td>
-                  <td>
+                  <td class="model-info__table-feature">{{ feature.name }}</td>
+                  <td class="model-info__table-percent">
+                    {{ (feature.importance * 100).toFixed(2) }}%
+                  </td>
+                  <td class="model-info__table-progress">
                     <div class="model-info__progress-bar">
                       <div
                         class="model-info__progress-fill"
@@ -110,41 +112,43 @@
         <div class="model-info__card">
           <div class="model-info__card-icon">📈</div>
           <h3 class="model-info__card-title">Метрики качества</h3>
-          <table class="model-info__metrics-table">
-            <thead>
-              <tr>
-                <th>Метрика</th>
-                <th>Train</th>
-                <th>Test</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>
-                  <strong>MAE</strong>
-                  <span class="model-info__metric-hint" title="Средняя абсолютная ошибка">ⓘ</span>
-                </td>
-                <td>73 345 ₽</td>
-                <td>100 541 ₽</td>
-              </tr>
-              <tr>
-                <td>
-                  <strong>RMSE</strong>
-                  <span class="model-info__metric-hint" title="Среднеквадратичная ошибка">ⓘ</span>
-                </td>
-                <td>110 979 ₽</td>
-                <td>151 530 ₽</td>
-              </tr>
-              <tr class="model-info__highlight">
-                <td>
-                  <strong>R² Score</strong>
-                  <span class="model-info__metric-hint" title="Коэффициент детерминации">ⓘ</span>
-                </td>
-                <td>0.8556</td>
-                <td>0.7178</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="model-info__table-wrapper">
+            <table class="model-info__metrics-table">
+              <thead>
+                <tr>
+                  <th>Метрика</th>
+                  <th>Train</th>
+                  <th>Test</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <strong>MAE</strong>
+                    <span class="model-info__metric-hint" title="Средняя абсолютная ошибка">ⓘ</span>
+                  </td>
+                  <td>73 345 ₽</td>
+                  <td>100 541 ₽</td>
+                </tr>
+                <tr>
+                  <td>
+                    <strong>RMSE</strong>
+                    <span class="model-info__metric-hint" title="Среднеквадратичная ошибка">ⓘ</span>
+                  </td>
+                  <td>110 979 ₽</td>
+                  <td>151 530 ₽</td>
+                </tr>
+                <tr class="model-info__highlight">
+                  <td>
+                    <strong>R² Score</strong>
+                    <span class="model-info__metric-hint" title="Коэффициент детерминации">ⓘ</span>
+                  </td>
+                  <td>0.8556</td>
+                  <td>0.7178</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
           <div class="model-info__metrics-explanation">
             <h4>🎯 Почему R² = 0.72 — хороший результат для Retail?</h4>
@@ -246,7 +250,7 @@ const featureImportance = computed(() => [
   }
 
   @media (max-width: 768px) {
-    padding: 0;
+    padding: 8px;
   }
 
   &__container {
@@ -273,6 +277,14 @@ const featureImportance = computed(() => [
     color: white;
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+
+    @media (max-width: 768px) {
+      font-size: 1.8rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.5rem;
+    }
   }
 
   &__subtitle {
@@ -280,6 +292,11 @@ const featureImportance = computed(() => [
     color: rgba(255, 255, 255, 0.95);
     max-width: 700px;
     margin: 0 auto;
+
+    @media (max-width: 768px) {
+      font-size: 1rem;
+      padding: 0 16px;
+    }
   }
 
   &__grid {
@@ -294,8 +311,8 @@ const featureImportance = computed(() => [
     }
 
     @media (max-width: 768px) {
-      grid-template-columns: 1fr;
-      margin-bottom: 16px;
+      gap: 16px;
+      margin-bottom: 24px;
     }
   }
 
@@ -313,13 +330,18 @@ const featureImportance = computed(() => [
       box-shadow 0.3s ease;
 
     @media (max-width: 1024px) {
+      padding: 20px;
+      gap: 14px;
+    }
+
+    @media (max-width: 768px) {
       padding: 16px;
       gap: 12px;
     }
 
-    @media (max-width: 768px) {
+    @media (max-width: 480px) {
       padding: 12px;
-      gap: 8px;
+      gap: 10px;
     }
 
     &:hover {
@@ -333,17 +355,30 @@ const featureImportance = computed(() => [
 
     &-icon {
       font-size: 2.5rem;
+
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
     }
 
     &-title {
       font-size: 1.5rem;
       font-weight: 700;
       color: #333;
+
+      @media (max-width: 768px) {
+        font-size: 1.3rem;
+      }
     }
 
     &-text {
       color: #666;
       line-height: 1.6;
+      font-size: 0.95rem;
+
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
     }
   }
 
@@ -352,6 +387,10 @@ const featureImportance = computed(() => [
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 15px;
+
+    @media (max-width: 480px) {
+      gap: 8px;
+    }
   }
 
   &__feature-tag {
@@ -360,6 +399,11 @@ const featureImportance = computed(() => [
     border-radius: 20px;
     font-size: 0.85rem;
     color: #555;
+
+    @media (max-width: 480px) {
+      font-size: 0.75rem;
+      padding: 4px 10px;
+    }
   }
 
   &__link {
@@ -377,6 +421,10 @@ const featureImportance = computed(() => [
 
     &--small {
       font-size: 0.85rem;
+
+      @media (max-width: 480px) {
+        font-size: 0.75rem;
+      }
     }
   }
 
@@ -384,6 +432,7 @@ const featureImportance = computed(() => [
     overflow-x: auto;
     margin: 20px 0;
     width: 100%;
+    -webkit-overflow-scrolling: touch;
 
     @media (max-width: 1024px) {
       margin: 12px 0;
@@ -396,14 +445,38 @@ const featureImportance = computed(() => [
 
   &__table {
     width: 100%;
+    min-width: 500px; // Минимальная ширина для читаемости
     border-collapse: collapse;
     font-size: 0.9rem;
+
+    @media (max-width: 768px) {
+      font-size: 0.8rem;
+      min-width: 400px;
+    }
+
+    @media (max-width: 480px) {
+      min-width: 320px;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 390px) {
+      min-width: 270px;
+      font-size: 0.4rem;
+    }
 
     th,
     td {
       padding: 12px;
       text-align: left;
       border-bottom: 1px solid #e0e0e0;
+
+      @media (max-width: 768px) {
+        padding: 8px;
+      }
+
+      @media (max-width: 480px) {
+        padding: 6px;
+      }
     }
 
     th {
@@ -415,6 +488,32 @@ const featureImportance = computed(() => [
     td {
       color: #666;
     }
+
+    &-feature {
+      max-width: 200px;
+      white-space: normal;
+      word-break: break-word;
+
+      @media (max-width: 768px) {
+        max-width: 150px;
+      }
+
+      @media (max-width: 480px) {
+        max-width: 120px;
+      }
+    }
+
+    &-percent {
+      white-space: nowrap;
+    }
+
+    &-progress {
+      min-width: 100px;
+
+      @media (max-width: 480px) {
+        min-width: 80px;
+      }
+    }
   }
 
   &__progress-bar {
@@ -422,7 +521,15 @@ const featureImportance = computed(() => [
     border-radius: 10px;
     height: 20px;
     overflow: hidden;
-    width: 150px;
+    width: 100%;
+
+    @media (max-width: 768px) {
+      height: 16px;
+    }
+
+    @media (max-width: 480px) {
+      height: 12px;
+    }
   }
 
   &__progress-fill {
@@ -440,6 +547,16 @@ const featureImportance = computed(() => [
     font-size: 0.9rem;
     color: #555;
     border-left: 3px solid #667eea;
+
+    @media (max-width: 768px) {
+      padding: 12px;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 10px;
+      font-size: 0.8rem;
+    }
   }
 
   &__list {
@@ -452,6 +569,11 @@ const featureImportance = computed(() => [
       color: #666;
       border-bottom: 1px solid #f0f0f0;
 
+      @media (max-width: 768px) {
+        padding: 6px 0;
+        font-size: 0.9rem;
+      }
+
       strong {
         color: #333;
       }
@@ -460,7 +582,12 @@ const featureImportance = computed(() => [
 
   &__metrics-table {
     width: 100%;
+    min-width: 300px;
     border-collapse: collapse;
+
+    @media (max-width: 480px) {
+      min-width: 280px;
+    }
 
     th,
     td {
@@ -468,6 +595,16 @@ const featureImportance = computed(() => [
       text-align: center;
       border: 1px solid #e0e0e0;
       background: #181818;
+
+      @media (max-width: 768px) {
+        padding: 8px;
+        font-size: 0.85rem;
+      }
+
+      @media (max-width: 480px) {
+        padding: 6px;
+        font-size: 0.75rem;
+      }
     }
 
     th {
@@ -492,6 +629,13 @@ const featureImportance = computed(() => [
       line-height: 16px;
       cursor: help;
       margin-left: 5px;
+
+      @media (max-width: 768px) {
+        width: 14px;
+        height: 14px;
+        font-size: 8px;
+        line-height: 14px;
+      }
     }
   }
 
@@ -500,9 +644,17 @@ const featureImportance = computed(() => [
     padding: 15px;
     border-radius: 10px;
 
+    @media (max-width: 768px) {
+      padding: 12px;
+    }
+
     h4 {
       margin: 0 0 10px 0;
       color: #333;
+
+      @media (max-width: 768px) {
+        font-size: 1rem;
+      }
     }
 
     p {
@@ -510,6 +662,10 @@ const featureImportance = computed(() => [
       color: #555;
       font-size: 0.9rem;
       line-height: 1.5;
+
+      @media (max-width: 768px) {
+        font-size: 0.85rem;
+      }
     }
   }
 
@@ -517,6 +673,10 @@ const featureImportance = computed(() => [
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
+
+    @media (max-width: 480px) {
+      gap: 10px;
+    }
   }
 
   &__footer {
@@ -533,7 +693,13 @@ const featureImportance = computed(() => [
     }
 
     @media (max-width: 768px) {
-      padding: 12px;
+      padding: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 480px) {
+      padding: 16px;
+      font-size: 0.8rem;
     }
 
     a {
@@ -546,6 +712,10 @@ const featureImportance = computed(() => [
     font-size: 0.85rem;
     opacity: 0.8;
     margin-top: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 0.75rem;
+    }
   }
 }
 </style>
