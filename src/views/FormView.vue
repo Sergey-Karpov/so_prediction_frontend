@@ -41,10 +41,6 @@ onMounted(async () => {
         <h3>{{ modelDocs.message }}</h3>
         <ul>
           <li>
-            <span>version: </span>
-            <p>{{ modelDocs.version }}</p>
-          </li>
-          <li>
             <span>model type: </span>
             <p>{{ modelDocs.type }}</p>
           </li>

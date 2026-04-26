@@ -2,6 +2,7 @@
 import { onMounted, ref } from 'vue'
 import BtnMain from '@/components/ui/BtnMain.vue'
 import { useRouter } from 'vue-router'
+import MainArticle from '../components/ui/MainArticle.vue'
 
 const router = useRouter()
 const isLoading = ref(false)
@@ -35,6 +36,9 @@ const checkServer = async () => {
 
 <template>
   <main>
+    <div class="description">
+      <MainArticle />
+    </div>
     <BtnMain :disabled="isLoading" @click-handler="checkServer"> Start </BtnMain>
   </main>
 </template>

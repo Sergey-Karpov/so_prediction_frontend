@@ -37,6 +37,7 @@ const clickHandler = () => {
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
+  width: 30%;
 
   &:hover {
     background-color: #33a06f;
@@ -46,6 +47,15 @@ const clickHandler = () => {
     opacity: 0.5;
     cursor: not-allowed;
     pointer-events: none;
+  }
+
+  @media (max-width: 1024px) {
+    align-self: flex-start;
+    width: 40%;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
   }
 }
 </style>
