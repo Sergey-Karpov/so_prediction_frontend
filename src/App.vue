@@ -16,5 +16,6 @@ import HeaderMain from '@/components/HeaderMain.vue'
   flex-direction: column;
   align-items: stretch;
   gap: 2rem;
+  padding-bottom: 4rem;
 }
 </style>
