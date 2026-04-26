@@ -208,7 +208,7 @@
           и сохранена в production-ready формате (joblib/pickle)
         </p>
         <p class="model-info__version">
-          Версия модели: 1.0 | Автор: Sergey Karpov | Дата создания: 2024
+          Версия модели: 1.0 | Автор: Sergey Karpov | Дата создания: 2026
         </p>
       </div>
     </div>
