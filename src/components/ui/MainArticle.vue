@@ -3,7 +3,7 @@
     <div class="model-info__container">
       <!-- Hero секция -->
       <div class="model-info__hero">
-        <h1 class="model-info__title">🚀 Sales Prediction Service</h1>
+        <h1 class="model-info__title title">Sales Prediction Service</h1>
         <p class="model-info__subtitle">
           Интеллектуальная система прогнозирования розничных продаж на основе машинного обучения
         </p>
@@ -17,7 +17,8 @@
           <h3 class="model-info__card-title">О сервисе</h3>
           <p class="model-info__card-text">
             Сервис прогнозирует средний объем продаж (<strong>avg</strong>) розничных точек на
-            основе ассортиментных и рыночных данных.
+            основе ассортиментных и рыночных данных. Может быть полезен для кластиризации новых
+            торговых точек.
           </p>
           <div class="model-info__features">
             <span class="model-info__feature-tag">🎯 R² = 0.72</span>
@@ -274,7 +275,7 @@ const featureImportance = computed(() => [
   &__title {
     font-size: 3rem;
     font-weight: 800;
-    color: white;
+    color: hsla(160, 100%, 37%, 1);
     margin-bottom: 15px;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 
@@ -289,7 +290,7 @@ const featureImportance = computed(() => [
 
   &__subtitle {
     font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.95);
+    color: hsla(160, 100%, 37%, 1);
     max-width: 700px;
     margin: 0 auto;
 
@@ -684,7 +685,7 @@ const featureImportance = computed(() => [
     padding: 30px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 16px;
-    color: white;
+    color: hsla(160, 100%, 37%, 1);
     margin-bottom: 24px;
 
     @media (max-width: 1024px) {
@@ -703,7 +704,7 @@ const featureImportance = computed(() => [
     }
 
     a {
-      color: white;
+      color: hsla(160, 100%, 37%, 1);
       text-decoration: underline;
     }
   }

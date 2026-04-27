@@ -335,7 +335,7 @@ const submitForm = async () => {
 
   h2 {
     text-align: center;
-    color: #f8f8f8;
+    color: hsla(160, 100%, 37%, 1);
     margin-bottom: 2rem;
 
     @media (max-width: 1024px) {
