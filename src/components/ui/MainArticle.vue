@@ -596,6 +596,7 @@ const featureImportance = computed(() => [
       text-align: center;
       border: 1px solid #e0e0e0;
       background: #181818;
+      color: hsla(160, 100%, 37%, 1);
 
       @media (max-width: 768px) {
         padding: 8px;
