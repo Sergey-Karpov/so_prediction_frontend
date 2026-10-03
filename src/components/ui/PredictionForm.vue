@@ -140,6 +140,8 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
 
+const API_URL = import.meta.env.VITE_API_URL
+
 // Данные формы
 const formData = reactive({
   chain: '',
@@ -288,7 +290,7 @@ const submitForm = async () => {
   predictionResult.value = null
 
   try {
-    const response = await fetch('https://sales-prediction-api.up.railway.app/predict', {
+    const response = await fetch(`${API_URL}predict`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
