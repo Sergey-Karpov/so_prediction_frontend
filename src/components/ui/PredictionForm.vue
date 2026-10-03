@@ -1,63 +1,63 @@
 <template>
   <div class="prediction-form">
-    <h2>Форма прогнозирования продаж</h2>
+    <h2>Sales Prediction Form</h2>
 
     <form @submit.prevent="submitForm" class="prediction-form__form">
       <div class="prediction-form__wrapper">
         <!-- Chain -->
         <div class="prediction-form__field" :class="{ error: errors.chain }">
-          <label for="chain">Сеть магазинов *</label>
+          <label for="chain">Retail chain *</label>
           <select id="chain" v-model="formData.chain" @blur="validateField('chain')">
-            <option value="">Выберите сеть</option>
-            <option value="aushan">Ашан</option>
-            <option value="detmir">Детский мир</option>
-            <option value="lenta">Лента</option>
+            <option value="">Select a chain</option>
+            <option value="aushan">Auchan</option>
+            <option value="detmir">Detsky Mir</option>
+            <option value="lenta">Lenta</option>
           </select>
           <span v-if="errors.chain" class="error-message">{{ errors.chain }}</span>
         </div>
 
         <!-- Cereals -->
         <div class="prediction-form__field" :class="{ error: errors.cereals }">
-          <label for="cereals">Количество SKU каш *</label>
+          <label for="cereals">Number of cereal SKUs *</label>
           <input
             id="cereals"
             type="number"
             v-model.number="formData.cereals"
             @blur="validateField('cereals')"
-            placeholder="SKU каш"
+            placeholder="Cereal SKUs"
           />
           <span v-if="errors.cereals" class="error-message">{{ errors.cereals }}</span>
         </div>
 
         <!-- Milk -->
         <div class="prediction-form__field" :class="{ error: errors.milk }">
-          <label for="milk">Количество SKU молока *</label>
+          <label for="milk">Number of milk SKUs *</label>
           <input
             id="milk"
             type="number"
             v-model.number="formData.milk"
             @blur="validateField('milk')"
-            placeholder="SKU ЗГМ"
+            placeholder="Milk SKUs"
           />
           <span v-if="errors.milk" class="error-message">{{ errors.milk }}</span>
         </div>
 
         <!-- Population -->
         <div class="prediction-form__field" :class="{ error: errors.population }">
-          <label for="population">Население города *</label>
+          <label for="population">City population *</label>
           <input
             id="population"
             type="number"
             v-model.number="formData.population"
             @blur="validateField('population')"
-            placeholder="Введите численность населения"
+            placeholder="Enter the city population"
           />
           <span v-if="errors.population" class="error-message">{{ errors.population }}</span>
         </div>
 
         <!-- Market Share -->
         <div class="prediction-form__field" :class="{ error: errors.market_share }">
-          <label for="market_share">Доля рынка * (менее 1)</label>
+          <label for="market_share">Market share * (less than 1)</label>
           <input
             id="market_share"
             type="number"
@@ -67,18 +67,18 @@
             placeholder="0.00 - 0.99"
           />
           <span v-if="errors.market_share" class="error-message">{{ errors.market_share }}</span>
-          <small class="hint">Значение должно быть от 0 до 1 (например, 0.25)</small>
+          <small class="hint">The value must be between 0 and 1 (e.g., 0.25)</small>
         </div>
 
         <!-- Aushan count -->
         <div class="prediction-form__field" :class="{ error: errors.aushan_count_in_city }">
-          <label for="aushan">Количество магазинов Ашан в городе *</label>
+          <label for="aushan">Number of Auchan stores in the city *</label>
           <input
             id="aushan"
             type="number"
             v-model.number="formData.aushan_count_in_city"
             @blur="validateField('aushan_count_in_city')"
-            placeholder="Количество Ашанов"
+            placeholder="Number of Auchan stores"
           />
           <span v-if="errors.aushan_count_in_city" class="error-message">{{
             errors.aushan_count_in_city
@@ -87,13 +87,13 @@
 
         <!-- Detmir count -->
         <div class="prediction-form__field" :class="{ error: errors.detmir_count_in_city }">
-          <label for="detmir">Количество магазинов Детмир в городе *</label>
+          <label for="detmir">Number of Detsky Mir stores in the city *</label>
           <input
             id="detmir"
             type="number"
             v-model.number="formData.detmir_count_in_city"
             @blur="validateField('detmir_count_in_city')"
-            placeholder="Количество Детмиров"
+            placeholder="Number of Detsky Mir stores"
           />
           <span v-if="errors.detmir_count_in_city" class="error-message">{{
             errors.detmir_count_in_city
@@ -102,13 +102,13 @@
 
         <!-- Lenta count -->
         <div class="prediction-form__field" :class="{ error: errors.lenta_count_in_city }">
-          <label for="lenta">Количество магазинов Лента в городе *</label>
+          <label for="lenta">Number of Lenta stores in the city *</label>
           <input
             id="lenta"
             type="number"
             v-model.number="formData.lenta_count_in_city"
             @blur="validateField('lenta_count_in_city')"
-            placeholder="Количество Лент"
+            placeholder="Number of Lenta stores"
           />
           <span v-if="errors.lenta_count_in_city" class="error-message">{{
             errors.lenta_count_in_city
@@ -118,13 +118,13 @@
 
       <button type="submit" class="submit-btn" :disabled="!isFormValid || isLoading">
         <span v-if="isLoading" class="spinner"></span>
-        {{ isLoading ? 'Отправка...' : 'Прогнозировать' }}
+        {{ isLoading ? 'Submitting...' : 'Predict' }}
       </button>
     </form>
 
     <!-- result -->
     <div v-if="predictionResult" class="prediction-form__result">
-      <h3>Результат прогнозирования</h3>
+      <h3>Prediction Result</h3>
       <div class="prediction-form__result-value">
         <strong>{{ predictionResult }} ₽</strong>
       </div>
@@ -142,7 +142,7 @@ import { reactive, ref, computed } from 'vue'
 
 const API_URL = import.meta.env.VITE_API_URL
 
-// Данные формы
+// Form data
 const formData = reactive({
   chain: '',
   cereals: null,
@@ -154,12 +154,12 @@ const formData = reactive({
   lenta_count_in_city: null,
 })
 
-// Состояния
+// States
 const isLoading = ref(false)
 const predictionResult = ref(null)
 const serverError = ref('')
 
-// Ошибки валидации
+// Validation errors
 const errors = reactive({
   chain: '',
   cereals: '',
@@ -171,12 +171,12 @@ const errors = reactive({
   lenta_count_in_city: '',
 })
 
-// Валидация полей
+// Field validation
 const validateField = (field) => {
   switch (field) {
     case 'chain':
       if (!formData.chain) {
-        errors.chain = 'Выберите сеть магазинов'
+        errors.chain = 'Please select a retail chain'
       } else {
         errors.chain = ''
       }
@@ -184,9 +184,9 @@ const validateField = (field) => {
 
     case 'cereals':
       if (!formData.cereals && formData.cereals !== 0) {
-        errors.cereals = 'Введите количество SKU каш'
+        errors.cereals = 'Please enter the number of cereal SKUs'
       } else if (formData.cereals < 0) {
-        errors.cereals = 'Количество не может быть отрицательным'
+        errors.cereals = 'The value cannot be negative'
       } else {
         errors.cereals = ''
       }
@@ -194,9 +194,9 @@ const validateField = (field) => {
 
     case 'milk':
       if (!formData.milk && formData.milk !== 0) {
-        errors.milk = 'Введите количество SKU молока'
+        errors.milk = 'Please enter the number of milk SKUs'
       } else if (formData.milk < 0) {
-        errors.milk = 'Количество не может быть отрицательным'
+        errors.milk = 'The value cannot be negative'
       } else {
         errors.milk = ''
       }
@@ -204,9 +204,9 @@ const validateField = (field) => {
 
     case 'population':
       if (!formData.population && formData.population !== 0) {
-        errors.population = 'Введите население города'
+        errors.population = 'Please enter the city population'
       } else if (formData.population < 0) {
-        errors.population = 'Население не может быть отрицательным'
+        errors.population = 'Population cannot be negative'
       } else {
         errors.population = ''
       }
@@ -214,11 +214,11 @@ const validateField = (field) => {
 
     case 'market_share':
       if (!formData.market_share && formData.market_share !== 0) {
-        errors.market_share = 'Введите долю рынка'
+        errors.market_share = 'Please enter the market share'
       } else if (formData.market_share < 0) {
-        errors.market_share = 'Доля рынка не может быть отрицательной'
+        errors.market_share = 'Market share cannot be negative'
       } else if (formData.market_share >= 1) {
-        errors.market_share = 'Доля рынка должна быть менее 1'
+        errors.market_share = 'Market share must be less than 1'
       } else {
         errors.market_share = ''
       }
@@ -226,9 +226,9 @@ const validateField = (field) => {
 
     case 'aushan_count_in_city':
       if (!formData.aushan_count_in_city && formData.aushan_count_in_city !== 0) {
-        errors.aushan_count_in_city = 'Введите количество магазинов Ашан'
+        errors.aushan_count_in_city = 'Please enter the number of Auchan stores'
       } else if (formData.aushan_count_in_city < 0) {
-        errors.aushan_count_in_city = 'Количество не может быть отрицательным'
+        errors.aushan_count_in_city = 'The value cannot be negative'
       } else {
         errors.aushan_count_in_city = ''
       }
@@ -236,9 +236,9 @@ const validateField = (field) => {
 
     case 'detmir_count_in_city':
       if (!formData.detmir_count_in_city && formData.detmir_count_in_city !== 0) {
-        errors.detmir_count_in_city = 'Введите количество магазинов Детмир'
+        errors.detmir_count_in_city = 'Please enter the number of Detsky Mir stores'
       } else if (formData.detmir_count_in_city < 0) {
-        errors.detmir_count_in_city = 'Количество не может быть отрицательным'
+        errors.detmir_count_in_city = 'The value cannot be negative'
       } else {
         errors.detmir_count_in_city = ''
       }
@@ -246,9 +246,9 @@ const validateField = (field) => {
 
     case 'lenta_count_in_city':
       if (!formData.lenta_count_in_city && formData.lenta_count_in_city !== 0) {
-        errors.lenta_count_in_city = 'Введите количество магазинов Лента'
+        errors.lenta_count_in_city = 'Please enter the number of Lenta stores'
       } else if (formData.lenta_count_in_city < 0) {
-        errors.lenta_count_in_city = 'Количество не может быть отрицательным'
+        errors.lenta_count_in_city = 'The value cannot be negative'
       } else {
         errors.lenta_count_in_city = ''
       }
@@ -256,9 +256,9 @@ const validateField = (field) => {
   }
 }
 
-// Валидация всей формы
+// Full form validation
 const isFormValid = computed(() => {
-  // Проверяем, что все поля заполнены
+  // Ensure all fields are filled
   const allFieldsFilled =
     formData.chain &&
     formData.cereals !== null &&
@@ -269,18 +269,18 @@ const isFormValid = computed(() => {
     formData.detmir_count_in_city !== null &&
     formData.lenta_count_in_city !== null
 
-  // Проверяем, что нет ошибок валидации
+  // Ensure there are no validation errors
   const noErrors = Object.values(errors).every((error) => error === '')
 
-  // Дополнительная проверка market_share < 1
+  // Additional check: market_share < 1
   const marketShareValid = formData.market_share < 1
 
   return allFieldsFilled && noErrors && marketShareValid
 })
 
-// Отправка формы
+// Form submission
 const submitForm = async () => {
-  // Валидируем все поля перед отправкой
+  // Validate all fields before submission
   Object.keys(formData).forEach((field) => validateField(field))
 
   if (!isFormValid.value) return
@@ -304,17 +304,17 @@ const submitForm = async () => {
 
       console.log(predictionResult.value)
 
-      // Очищаем форму (опционально)
+      // Optionally reset the form
       // Object.keys(formData).forEach(key => {
       //   formData[key] = key === 'chain' ? '' : null
       // })
     } else {
       const error = await response.json()
-      serverError.value = error.error || 'Ошибка при отправке данных'
+      serverError.value = error.error || 'An error occurred while submitting the data'
     }
   } catch (error) {
-    console.error('Ошибка:', error)
-    serverError.value = 'Сервер недоступен. Попробуйте позже.'
+    console.error('Error:', error)
+    serverError.value = 'The server is unavailable. Please try again later.'
   } finally {
     isLoading.value = false
   }
