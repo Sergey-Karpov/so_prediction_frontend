@@ -23,7 +23,7 @@ const checkServer = async () => {
       router.push('/form')
       console.log('ok')
     } else {
-      errorMsg.value = `Сервер вернул ошибку: ${response.status}`
+      errorMsg.value = `Сервер вернул ошибку - ${response.status}`
     }
   } catch (error) {
     console.error('Ошибка запроса, ', error)
