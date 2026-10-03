@@ -1,74 +1,74 @@
 <template>
   <div class="model-info">
     <div class="model-info__container">
-      <!-- Hero секция -->
+      <!-- Hero section -->
       <div class="model-info__hero">
         <h1 class="model-info__title title">Sales Prediction Service</h1>
         <p class="model-info__subtitle">
-          Интеллектуальная система прогнозирования розничных продаж на основе машинного обучения
+          An intelligent retail sales forecasting system powered by machine learning
         </p>
       </div>
 
-      <!-- Основная сетка -->
+      <!-- Main grid -->
       <div class="model-info__grid">
-        <!-- О сервисе -->
+        <!-- About the service -->
         <div class="model-info__card">
           <div class="model-info__card-icon">📊</div>
-          <h3 class="model-info__card-title">О сервисе</h3>
+          <h3 class="model-info__card-title">About the Service</h3>
           <p class="model-info__card-text">
-            Сервис прогнозирует средний объем продаж (<strong>avg</strong>) розничных точек на
-            основе ассортиментных и рыночных данных. Может быть полезен для кластиризации новых
-            торговых точек.
+            The service forecasts the average sales volume (<strong>avg</strong>) of retail outlets
+            based on assortment and market data. It can be useful for clustering new retail
+            locations.
           </p>
           <div class="model-info__features">
             <span class="model-info__feature-tag">🎯 R² = 0.72</span>
             <span class="model-info__feature-tag">📊 MAE = 100k ₽</span>
-            <span class="model-info__feature-tag">⚡ 0.1 сек</span>
+            <span class="model-info__feature-tag">⚡ 0.1 sec</span>
             <span class="model-info__feature-tag">🔄 API Ready</span>
           </div>
         </div>
 
-        <!-- scikit-learn информация -->
+        <!-- scikit-learn info -->
         <div class="model-info__card">
           <div class="model-info__card-icon">🐍</div>
-          <h3 class="model-info__card-title">Библиотека scikit-learn</h3>
+          <h3 class="model-info__card-title">scikit-learn Library</h3>
           <p class="model-info__card-text">
-            Основной фреймворк для реализации пайплайнов машинного обучения. Предоставляет
-            инструменты для предобработки, валидации и построения моделей.
+            The primary framework for building machine learning pipelines. It provides tools for
+            preprocessing, validation, and model construction.
           </p>
           <a href="https://scikit-learn.org/stable/" target="_blank" class="model-info__link">
-            📖 Официальная документация →
+            📖 Official documentation →
           </a>
         </div>
 
-        <!-- RandomForest информация -->
+        <!-- RandomForest info -->
         <div class="model-info__card">
           <div class="model-info__card-icon">🌲</div>
           <h3 class="model-info__card-title">Random Forest Regressor</h3>
           <p class="model-info__card-text">
-            Ансамблевый алгоритм, использующий 600 деревьев решений. Устойчив к выбросам и
-            переобучению, даёт интерпретируемую важность признаков.
+            An ensemble algorithm using 600 decision trees. It is robust to outliers and
+            overfitting, and provides interpretable feature importance.
           </p>
           <a
             href="https://towardsdatascience.com/random-forest-regression-5f605132d19d"
             target="_blank"
             class="model-info__link"
           >
-            📚 Статья о применении в регрессии →
+            📚 Article on regression applications →
           </a>
         </div>
 
-        <!-- Важность признаков -->
+        <!-- Feature Importance -->
         <div class="model-info__card model-info__card--full">
           <div class="model-info__card-icon">🎯</div>
-          <h3 class="model-info__card-title">Важность признаков (Feature Importance)</h3>
+          <h3 class="model-info__card-title">Feature Importance</h3>
           <div class="model-info__table-wrapper">
             <table class="model-info__table">
               <thead>
                 <tr>
-                  <th>Признак</th>
-                  <th>Вес влияния</th>
-                  <th>Визуализация</th>
+                  <th>Feature</th>
+                  <th>Importance</th>
+                  <th>Visualization</th>
                 </tr>
               </thead>
               <tbody>
@@ -90,34 +90,34 @@
             </table>
           </div>
           <p class="model-info__note">
-            💡 <strong>Ключевое открытие:</strong> ассортимент молока (26%) и каш (10.6%) — главные
-            драйверы продаж. Взаимодействие категорий (<em>cereals_milk_multi</em>) даёт
-            дополнительный 18.6% прогнозной силы.
+            💡 <strong>Key insight:</strong> milk assortment (26%) and cereals (10.6%) are the main
+            drivers of sales. Category interaction (<em>cereals_milk_multi</em>) adds an additional
+            18.6% of predictive power.
           </p>
         </div>
 
-        <!-- Данные обучения -->
+        <!-- Training data -->
         <div class="model-info__card">
           <div class="model-info__card-icon">📚</div>
-          <h3 class="model-info__card-title">Данные для обучения</h3>
+          <h3 class="model-info__card-title">Training Data</h3>
           <ul class="model-info__list">
-            <li><strong>Объём выборки:</strong> 2 091 запись</li>
-            <li><strong>Период:</strong> исторические данные о продажах</li>
-            <li><strong>Города:</strong> Москва, СПб, Симферополь, Орёл и др.</li>
-            <li><strong>Сети:</strong> Ашан, Детский мир, Лента</li>
-            <li><strong>Исходные признаки:</strong> 6 → после генерации: 15</li>
+            <li><strong>Sample size:</strong> 2,091 records</li>
+            <li><strong>Period:</strong> historical sales data</li>
+            <li><strong>Cities:</strong> Moscow, St. Petersburg, Simferopol, Oryol, and others</li>
+            <li><strong>Chains:</strong> Auchan, Detsky Mir, Lenta</li>
+            <li><strong>Original features:</strong> 6 → after generation: 15</li>
           </ul>
         </div>
 
-        <!-- Метрики -->
+        <!-- Metrics -->
         <div class="model-info__card">
           <div class="model-info__card-icon">📈</div>
-          <h3 class="model-info__card-title">Метрики качества</h3>
+          <h3 class="model-info__card-title">Quality Metrics</h3>
           <div class="model-info__table-wrapper">
             <table class="model-info__metrics-table">
               <thead>
                 <tr>
-                  <th>Метрика</th>
+                  <th>Metric</th>
                   <th>Train</th>
                   <th>Test</th>
                 </tr>
@@ -126,7 +126,7 @@
                 <tr>
                   <td>
                     <strong>MAE</strong>
-                    <span class="model-info__metric-hint" title="Средняя абсолютная ошибка">ⓘ</span>
+                    <span class="model-info__metric-hint" title="Mean Absolute Error">ⓘ</span>
                   </td>
                   <td>73 345 ₽</td>
                   <td>100 541 ₽</td>
@@ -134,7 +134,7 @@
                 <tr>
                   <td>
                     <strong>RMSE</strong>
-                    <span class="model-info__metric-hint" title="Среднеквадратичная ошибка">ⓘ</span>
+                    <span class="model-info__metric-hint" title="Root Mean Squared Error">ⓘ</span>
                   </td>
                   <td>110 979 ₽</td>
                   <td>151 530 ₽</td>
@@ -142,7 +142,9 @@
                 <tr class="model-info__highlight">
                   <td>
                     <strong>R² Score</strong>
-                    <span class="model-info__metric-hint" title="Коэффициент детерминации">ⓘ</span>
+                    <span class="model-info__metric-hint" title="Coefficient of Determination"
+                      >ⓘ</span
+                    >
                   </td>
                   <td>0.8556</td>
                   <td>0.7178</td>
@@ -152,12 +154,12 @@
           </div>
 
           <div class="model-info__metrics-explanation">
-            <h4>🎯 Почему R² = 0.72 — хороший результат для Retail?</h4>
+            <h4>🎯 Why is R² = 0.72 a good result for Retail?</h4>
             <p>
-              В розничной торговле прогнозирование среднего чека крайне сложно из-за: сезонности,
-              промо-акций, поведения покупателей. R² > 0.7 означает, что модель объясняет
-              <strong>более 70% вариативности</strong> продаж — отличный показатель для
-              production-систем.
+              In retail, forecasting average ticket value is extremely challenging due to
+              seasonality, promotions, and customer behavior. R² > 0.7 means the model explains
+              <strong>more than 70% of sales variance</strong> — an excellent result for production
+              systems.
             </p>
           </div>
 
@@ -167,36 +169,36 @@
               target="_blank"
               class="model-info__link model-info__link--small"
             >
-              📘 Что такое MAE?
+              📘 What is MAE?
             </a>
             <a
               href="https://en.wikipedia.org/wiki/Root_mean_square_deviation"
               target="_blank"
               class="model-info__link model-info__link--small"
             >
-              📘 Что такое RMSE?
+              📘 What is RMSE?
             </a>
             <a
               href="https://en.wikipedia.org/wiki/Coefficient_of_determination"
               target="_blank"
               class="model-info__link model-info__link--small"
             >
-              📘 Что такое R²?
+              📘 What is R²?
             </a>
           </div>
         </div>
 
-        <!-- Технические детали -->
+        <!-- Technical details -->
         <div class="model-info__card">
           <div class="model-info__card-icon">⚙️</div>
-          <h3 class="model-info__card-title">Технические детали модели</h3>
+          <h3 class="model-info__card-title">Model Technical Details</h3>
           <ul class="model-info__list">
-            <li><strong>Алгоритм:</strong> Random Forest (600 деревьев)</li>
+            <li><strong>Algorithm:</strong> Random Forest (600 trees)</li>
             <li><strong>Max depth:</strong> 10</li>
             <li><strong>Max features:</strong> sqrt</li>
             <li><strong>Max samples:</strong> 65% (≈bootstrapping)</li>
-            <li><strong>Обработка выбросов:</strong> IQR метод</li>
-            <li><strong>Генерация признаков:</strong> автоматическая</li>
+            <li><strong>Outlier handling:</strong> IQR method</li>
+            <li><strong>Feature generation:</strong> automatic</li>
           </ul>
         </div>
       </div>
@@ -204,12 +206,12 @@
       <!-- Footer -->
       <div class="model-info__footer">
         <p>
-          🧠 Модель обучена с использованием
+          🧠 The model was trained using
           <a href="https://scikit-learn.org/" target="_blank">scikit-learn</a>
-          и сохранена в production-ready формате (joblib/pickle)
+          and saved in a production-ready format (joblib/pickle)
         </p>
         <p class="model-info__version">
-          Версия модели: 1.0 | Автор: Sergey Karpov | Дата создания: 2026
+          Model version: 1.0 | Author: Sergey Karpov | Created: 2026
         </p>
       </div>
     </div>
@@ -219,23 +221,23 @@
 <script setup>
 import { computed } from 'vue'
 
-// Данные из лога обучения
+// Data from the training log
 const featureImportance = computed(() => [
-  { name: 'milk (количество SKU молока)', importance: 0.261542 },
-  { name: 'cereals_milk_multi (взаимодействие)', importance: 0.186184 },
-  { name: 'cereals_milk_ratio (соотношение)', importance: 0.120852 },
-  { name: 'cereals (количество SKU каш)', importance: 0.106054 },
-  { name: 'market_share (доля рынка)', importance: 0.057267 },
-  { name: 'detmir_count_share_in_city (доля Детмира)', importance: 0.037081 },
-  { name: 'chain_Детский мир (сеть)', importance: 0.035025 },
-  { name: 'lenta_count_share_in_city (доля Ленты)', importance: 0.034391 },
-  { name: 'lenta_count_in_city (кол-во Лент)', importance: 0.033757 },
-  { name: 'population (население)', importance: 0.032332 },
-  { name: 'top_chains_stores_count (кол-во топ-сетей)', importance: 0.032003 },
-  { name: 'detmir_count_in_city (кол-во Детмиров)', importance: 0.025668 },
-  { name: 'chain_Лента (сеть)', importance: 0.018281 },
-  { name: 'aushan_count_share_in_city (доля Ашана)', importance: 0.010653 },
-  { name: 'aushan_count_in_city (кол-во Ашанов)', importance: 0.008911 },
+  { name: 'milk (number of milk SKUs)', importance: 0.261542 },
+  { name: 'cereals_milk_multi (interaction)', importance: 0.186184 },
+  { name: 'cereals_milk_ratio (ratio)', importance: 0.120852 },
+  { name: 'cereals (number of cereal SKUs)', importance: 0.106054 },
+  { name: 'market_share (market share)', importance: 0.057267 },
+  { name: 'detmir_count_share_in_city (Detsky Mir share)', importance: 0.037081 },
+  { name: 'chain_Детский мир (chain)', importance: 0.035025 },
+  { name: 'lenta_count_share_in_city (Lenta share)', importance: 0.034391 },
+  { name: 'lenta_count_in_city (number of Lenta stores)', importance: 0.033757 },
+  { name: 'population (population)', importance: 0.032332 },
+  { name: 'top_chains_stores_count (number of top chain stores)', importance: 0.032003 },
+  { name: 'detmir_count_in_city (number of Detsky Mir stores)', importance: 0.025668 },
+  { name: 'chain_Лента (chain)', importance: 0.018281 },
+  { name: 'aushan_count_share_in_city (Auchan share)', importance: 0.010653 },
+  { name: 'aushan_count_in_city (number of Auchan stores)', importance: 0.008911 },
 ])
 </script>
 
