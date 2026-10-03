@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import loginView from '../views/loginView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
+      name: 'login',
+      component: loginView,
+    },
+    {
+      path: '/home',
       name: 'home',
       component: HomeView,
     },
@@ -18,6 +24,13 @@ const router = createRouter({
       component: () => import('../views/FormView.vue'),
     },
   ],
+})
+
+router.beforeEach((to) => {
+  const isAuth = sessionStorage.getItem('isAuthenticated') === 'true'
+  if (to.meta.requiresAuth && !isAuth) {
+    return { name: 'login' }
+  }
 })
 
 export default router
