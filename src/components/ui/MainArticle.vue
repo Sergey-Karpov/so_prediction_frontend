@@ -245,15 +245,15 @@ const featureImportance = computed(() => [
 .model-info {
   width: 100%;
   min-height: 100vh;
-  padding: 20px;
+  padding: 20px 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
 
   @media (max-width: 1024px) {
-    padding: 12px;
+    padding: 12px 0;
   }
 
   @media (max-width: 768px) {
-    padding: 8px;
+    padding: 8px 0;
   }
 
   &__container {
